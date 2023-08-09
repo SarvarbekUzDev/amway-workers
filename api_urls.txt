@@ -1,0 +1,60 @@
+-------------- Users ---------------
+-- CREATE USER -- [POST]
+name, mail, password
+/api/v1/users/register
+
+
+
+
+-- READ USER -- [GET]
+/api/v1/users/user/<user_id>
+
+
+-- UPDATE USER -- [PUT]
+name, mail, password
+/api/v1/users/update/<user_id>
+
+
+-- ALL WORKERS -- [GET]
+/api/v1/users/workers/<user_id>
+
+
+----------- PRODUCTS --------------------
+
+-- PRODUCT CREATE -- [POST]
+name, number, by_price, price, discount=>ixtiyori, category, user, media=>ixtiyoriy, description=>ixtiyoriy
+/api/v1/products/product/create
+
+
+-- PRODUCT READ -- [GET]
+/api/v1/products/product/<product_id>
+
+
+-- USER PRODUCTS -- [PUT]
+name, number, by_price, price, discount, category, user, media, description
+/api/v1/products/product/update/<product_id>
+
+
+-- USER DELETE -- [DELETE]
+/api/v1/products/product/delete/<product_id>
+
+
+-- USER PRODUCTS -- [GET]
+/api/v1/products/user-products/<user_id>
+
+------------ Sales ----------------------
+
+-- Sale product -- [POST]
+number=>nechta sotdi, product=>product id, user=>ischi id,
+Agar sotib oluvchi dasturda bo'lmasa : location=>ixtiyoriy, phone=>ixtiyoriy
+/api/v1/sales/product/sale/
+
+
+-- Cancel sale -- [POST]
+product, number, userid, location, product:  bularni xoxishiy va keraklisi o'zgartirish kerak
+/api/v1/sales/product/cancel-sale/<sale_id>
+
+
+-- User sales -- [GET]
+date=> Ushbu tarzda yilni yubosish: yil-oy-kun
+/api/v1/sales/user-sales/<user_id>

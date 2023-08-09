@@ -1,0 +1,8 @@
+Django==4.2.2
+djangorestframework==3.14.0
+django-jazzmin==2.6.0
+drf-spectacular==0.26.3
+environs==9.5.0
+httpx==0.23.3
+
+whitenoise

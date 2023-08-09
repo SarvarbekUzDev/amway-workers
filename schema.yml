@@ -1,0 +1,459 @@
+openapi: 3.0.3
+info:
+  title: Amway workers API docs
+  version: 1.0.0
+  description: Your project description
+paths:
+  /api/v1/products/product/{product_id}:
+    get:
+      operationId: api_v1_products_product_retrieve
+      parameters:
+      - in: path
+        name: product_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/products/product/categorys:
+    get:
+      operationId: api_v1_products_product_categorys_retrieve
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/products/product/create:
+    post:
+      operationId: api_v1_products_product_create_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+        required: true
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCreate'
+          description: ''
+  /api/v1/products/product/delete/{product_id}:
+    delete:
+      operationId: api_v1_products_product_delete_destroy
+      parameters:
+      - in: path
+        name: product_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/v1/products/product/update/{product_id}:
+    put:
+      operationId: api_v1_products_product_update_update
+      parameters:
+      - in: path
+        name: product_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+        required: true
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCreate'
+          description: ''
+    patch:
+      operationId: api_v1_products_product_update_partial_update
+      parameters:
+      - in: path
+        name: product_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProductCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProductCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProductCreate'
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCreate'
+          description: ''
+  /api/v1/products/user-products/{user_id}:
+    get:
+      operationId: api_v1_products_user_products_retrieve
+      parameters:
+      - in: path
+        name: user_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/sales/product/sale/:
+    post:
+      operationId: api_v1_sales_product_sale_create
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/sales/update-sale/{sale_id}:
+    post:
+      operationId: api_v1_sales_update_sale_create
+      parameters:
+      - in: path
+        name: sale_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/sales/user-sales/{user_id}:
+    get:
+      operationId: api_v1_sales_user_sales_retrieve
+      parameters:
+      - in: path
+        name: user_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/users/confirm/{id}/{rand_password}:
+    post:
+      operationId: api_v1_users_confirm_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: rand_password
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/users/register:
+    post:
+      operationId: api_v1_users_register_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Users'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Users'
+        required: true
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+          description: ''
+  /api/v1/users/update/{id}:
+    put:
+      operationId: api_v1_users_update_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Users'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Users'
+        required: true
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+          description: ''
+    patch:
+      operationId: api_v1_users_update_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUsers'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUsers'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUsers'
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+          description: ''
+  /api/v1/users/user/{id}:
+    get:
+      operationId: api_v1_users_user_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+components:
+  schemas:
+    PatchedProductCreate:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        number:
+          type: integer
+        by_price:
+          type: number
+          format: double
+        price:
+          type: number
+          format: double
+        discount:
+          type: integer
+        active:
+          type: boolean
+          default: true
+        user:
+          type: integer
+        category:
+          type: integer
+        media:
+          type: string
+          format: uri
+          nullable: true
+    PatchedUsers:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 20
+        mail:
+          type: string
+          format: email
+          maxLength: 100
+        password:
+          type: string
+          maxLength: 20
+          minLength: 6
+        active:
+          type: boolean
+          default: true
+    ProductCreate:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        number:
+          type: integer
+        by_price:
+          type: number
+          format: double
+        price:
+          type: number
+          format: double
+        discount:
+          type: integer
+        active:
+          type: boolean
+          default: true
+        user:
+          type: integer
+        category:
+          type: integer
+        media:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - by_price
+      - category
+      - id
+      - name
+      - number
+      - price
+      - user
+    Users:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 20
+        mail:
+          type: string
+          format: email
+          maxLength: 100
+        password:
+          type: string
+          maxLength: 20
+          minLength: 6
+        active:
+          type: boolean
+          default: true
+      required:
+      - id
+      - mail
+      - name
+      - password
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"
