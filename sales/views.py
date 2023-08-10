@@ -59,14 +59,6 @@ def ProductUpdateSaleView(request, sale_id):
 	except:
 		return Response({'error':'Error request.'}, status=400)
 
-@api_view(['GET'])
-def ProductSaleDeleteView(request, sale_id):
-	try:
-		sales = Sales.objects.get(id=sale_id)
-		serializer = SalesSerializer(sales, many=True)
-		return Response(serializer.data, status=200)
-	except:
-		return Response({'error':'Sale not found.'}, status=404)
 
 @api_view(['DELETE'])
 def UserSalesView(request, user_id):
