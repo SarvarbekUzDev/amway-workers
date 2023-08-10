@@ -61,6 +61,17 @@ def ProductUpdateSaleView(request, sale_id):
 
 
 @api_view(['DELETE'])
+def ProductSaleDeleteView(request, sale_id):
+	try:
+		sales = Sales.objects.get(id=sale_id)
+		sales.active = False
+		sales.save()
+		return Response({'message':'Product delete.'}, status=200)
+	except:
+		return Response({'error':'Sale not found.'}, status=404)
+
+
+@api_view(['GET'])
 def UserSalesView(request, user_id):
 	date = request.data.get("date")
 	sales = Sales.objects.filter(
