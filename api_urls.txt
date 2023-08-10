@@ -30,17 +30,20 @@ name, number, by_price, price, discount=>ixtiyori, category, user, media=>ixtiyo
 /api/v1/products/product/<product_id>
 
 
--- USER PRODUCTS -- [PUT]
+-- PRODUCTS UPDATE -- [PUT]
 name, number, by_price, price, discount, category, user, media, description
 /api/v1/products/product/update/<product_id>
 
 
--- USER DELETE -- [DELETE]
+-- PRODUCT DELETE -- [DELETE]
 /api/v1/products/product/delete/<product_id>
 
 
 -- USER PRODUCTS -- [GET]
 /api/v1/products/user-products/<user_id>
+
+-- PRODUCT CATEGORY -- [GET]
+api/v1/products/product/categorys
 
 ------------ Sales ----------------------
 
